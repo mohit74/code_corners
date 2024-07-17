@@ -33,7 +33,7 @@ Route::get('/register', [AuthController::class, 'signUp'])->name('signUp');
 Route::post('/sign-up', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['admin'])->group(function () {
     
     Route::resource('/blogs', BlogController::class);
     Route::post('/comment', [CommentController::class, 'store'])->name('comments.store');
